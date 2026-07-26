@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>One-Card Tarot Draw</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=IM+Fell+English:ital@0;1&display=swap"
+    rel="stylesheet"
+  />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <main class="page">
+    <h1>One-Card Tarot Draw</h1>
+
+    <div class="options">
+      <label class="option">
+        <input type="checkbox" id="reversed-toggle" />
+        Allow reversed cards
+      </label>
+      <label class="option">
+        <input type="checkbox" id="major-only-toggle" />
+        Major Arcana only
+      </label>
+    </div>
+
+    <button type="button" id="draw-button">Draw Card</button>
+
+    <div class="card-area">
+      <div class="card-flipper" id="card-flipper">
+        <div class="card-face card-back">
+          <img src="images/CardBacks.png" alt="Card back" class="card-image" />
+        </div>
+        <div class="card-face card-front">
+          <img id="card-image" src="" alt="" class="card-image" />
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>

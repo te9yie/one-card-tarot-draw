@@ -1,0 +1,123 @@
+:root {
+  color-scheme: light dark;
+  --bg: #14101c;
+  --fg: #f2eefa;
+  --accent: #8a5cf6;
+  --accent-hover: #a179f9;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  background: var(--bg);
+  color: var(--fg);
+  font-family: "IM Fell English", serif;
+  display: flex;
+  justify-content: center;
+}
+
+.page {
+  width: 100%;
+  max-width: 480px;
+  padding: 2rem 1.25rem 3rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.25rem;
+  text-align: center;
+}
+
+h1 {
+  font-size: 1.5rem;
+  margin: 0;
+}
+
+.options {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.option {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-size: 0.95rem;
+  cursor: pointer;
+}
+
+.option input {
+  width: 1.1rem;
+  height: 1.1rem;
+  accent-color: var(--accent);
+  cursor: pointer;
+}
+
+#draw-button {
+  padding: 0.75rem 2.5rem;
+  font-family: "IM Fell English", serif;
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: #fff;
+  background: var(--accent);
+  border: none;
+  border-radius: 999px;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+#draw-button:hover {
+  background: var(--accent-hover);
+}
+
+#draw-button:active {
+  transform: translateY(1px);
+}
+
+.card-area {
+  position: relative;
+  width: min(70vw, 260px);
+  aspect-ratio: 300 / 527;
+  perspective: 1200px;
+}
+
+.card-flipper {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transform-style: preserve-3d;
+  transition: transform 0.6s cubic-bezier(0.4, 0.2, 0.2, 1);
+}
+
+.card-flipper.is-flipped {
+  transform: rotateY(180deg);
+}
+
+.card-face {
+  position: absolute;
+  inset: 0;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+}
+
+.card-face.card-front {
+  transform: rotateY(180deg);
+}
+
+.card-image {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  border-radius: 12px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
+  display: block;
+}
+
+.card-image.reversed {
+  transform: rotate(180deg);
+}
