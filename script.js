@@ -38,9 +38,15 @@ const allCards = [...majorArcana, ...minorArcana];
 
 const reversedToggle = document.getElementById("reversed-toggle");
 const majorOnlyToggle = document.getElementById("major-only-toggle");
-const drawButton = document.getElementById("draw-button");
+const cardArea = document.getElementById("card-area");
 const cardFlipper = document.getElementById("card-flipper");
 const cardImage = document.getElementById("card-image");
+
+let rotation = 0;
+
+function isFront() {
+  return ((rotation % 360) + 360) % 360 === 180;
+}
 
 function drawCard() {
   const pool = majorOnlyToggle.checked ? majorArcana : allCards;
@@ -50,19 +56,25 @@ function drawCard() {
   cardImage.src = `images/${card.file}`;
   cardImage.alt = card.file.replace(/\.png$/, "");
   cardImage.classList.toggle("reversed", isReversed);
-
-  // Reset to the card-back face instantly, then flip to reveal the new
-  // card on the next paint so every draw plays the same flip motion.
-  cardFlipper.style.transition = "none";
-  cardFlipper.classList.remove("is-flipped");
-  cardFlipper.offsetWidth; // force reflow
-  cardFlipper.style.transition = "";
-
-  requestAnimationFrame(() => {
-    requestAnimationFrame(() => {
-      cardFlipper.classList.add("is-flipped");
-    });
-  });
 }
 
-drawButton.addEventListener("click", drawCard);
+function flip(direction) {
+  if (!isFront()) {
+    drawCard();
+  }
+  rotation += direction * 180;
+  cardFlipper.style.transform = `rotateY(${rotation}deg)`;
+}
+
+cardArea.addEventListener("click", (event) => {
+  const rect = cardArea.getBoundingClientRect();
+  const clickedRightHalf = event.clientX - rect.left > rect.width / 2;
+  flip(clickedRightHalf ? -1 : 1);
+});
+
+cardArea.addEventListener("keydown", (event) => {
+  if (event.key === "Enter" || event.key === " ") {
+    event.preventDefault();
+    flip(-1);
+  }
+});

@@ -58,32 +58,18 @@ h1 {
   cursor: pointer;
 }
 
-#draw-button {
-  padding: 0.75rem 2.5rem;
-  font-family: "IM Fell English", serif;
-  font-size: 1.2rem;
-  font-weight: bold;
-  color: #fff;
-  background: var(--accent);
-  border: none;
-  border-radius: 999px;
-  cursor: pointer;
-  transition: background 0.2s ease;
-}
-
-#draw-button:hover {
-  background: var(--accent-hover);
-}
-
-#draw-button:active {
-  transform: translateY(1px);
-}
-
 .card-area {
   position: relative;
   width: min(70vw, 260px);
   aspect-ratio: 300 / 527;
   perspective: 1200px;
+  cursor: pointer;
+}
+
+.card-area:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 4px;
+  border-radius: 12px;
 }
 
 .card-flipper {
@@ -92,10 +78,6 @@ h1 {
   height: 100%;
   transform-style: preserve-3d;
   transition: transform 0.6s cubic-bezier(0.4, 0.2, 0.2, 1);
-}
-
-.card-flipper.is-flipped {
-  transform: rotateY(180deg);
 }
 
 .card-face {
