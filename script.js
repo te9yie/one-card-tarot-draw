@@ -43,6 +43,7 @@ const cardFlipper = document.getElementById("card-flipper");
 const cardImage = document.getElementById("card-image");
 
 let rotation = 0;
+let isBusy = false;
 
 function isFront() {
   return ((rotation % 360) + 360) % 360 === 180;
@@ -56,14 +57,21 @@ function drawCard() {
   cardImage.src = `images/${card.file}`;
   cardImage.alt = card.file.replace(/\.png$/, "");
   cardImage.classList.toggle("reversed", isReversed);
+
+  return cardImage.decode().catch(() => {});
 }
 
-function flip(direction) {
+async function flip(direction) {
+  if (isBusy) return;
+  isBusy = true;
+
   if (!isFront()) {
-    drawCard();
+    await drawCard();
   }
   rotation += direction * 180;
   cardFlipper.style.transform = `rotateY(${rotation}deg)`;
+
+  isBusy = false;
 }
 
 cardArea.addEventListener("click", (event) => {
