@@ -21,6 +21,7 @@ body {
 }
 
 .page {
+  position: relative;
   width: 100%;
   max-width: 480px;
   padding: 2rem 1.25rem 3rem;
@@ -29,6 +30,26 @@ body {
   align-items: center;
   gap: 1.25rem;
   text-align: center;
+}
+
+.page-wide {
+  max-width: 900px;
+}
+
+.corner-link {
+  position: absolute;
+  top: 1rem;
+  right: 1.25rem;
+  font-size: 0.8rem;
+  color: var(--fg);
+  opacity: 0.55;
+  text-decoration: none;
+}
+
+.corner-link:hover,
+.corner-link:focus-visible {
+  color: var(--accent-hover);
+  opacity: 1;
 }
 
 h1 {
@@ -102,4 +123,93 @@ h1 {
 
 .card-image.reversed {
   transform: rotate(180deg);
+}
+
+#card-sections {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.card-section {
+  text-align: left;
+}
+
+.card-section h2 {
+  font-size: 1.1rem;
+  margin: 0 0 0.75rem;
+  color: var(--accent-hover);
+}
+
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+  gap: 0.75rem;
+}
+
+.card-thumb {
+  padding: 0;
+  border: none;
+  background: none;
+  aspect-ratio: 300 / 527;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+
+.card-thumb:hover,
+.card-thumb:focus-visible {
+  transform: translateY(-4px);
+  outline: none;
+}
+
+.card-thumb .card-image {
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+}
+
+.lightbox {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.85);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  padding: 2rem;
+  z-index: 10;
+}
+
+.lightbox[hidden] {
+  display: none;
+}
+
+.lightbox-image {
+  max-width: min(80vw, 420px);
+  max-height: 70vh;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+  border-radius: 12px;
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.6);
+}
+
+.lightbox-close {
+  position: absolute;
+  top: 1.5rem;
+  right: 1.5rem;
+  width: 2.5rem;
+  height: 2.5rem;
+  border: none;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.1);
+  color: var(--fg);
+  font-size: 1.5rem;
+  line-height: 1;
+  cursor: pointer;
+}
+
+.lightbox-close:hover,
+.lightbox-close:focus-visible {
+  background: var(--accent);
 }
