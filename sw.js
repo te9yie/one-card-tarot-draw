@@ -1,4 +1,4 @@
-const CACHE_NAME = "tarot-draw-v1";
+const CACHE_NAME = "tarot-draw-v2";
 
 const APP_SHELL = [
   "./",
