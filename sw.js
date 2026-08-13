@@ -1,4 +1,4 @@
-const CACHE_NAME = "tarot-draw-2026-08-13-00";
+const CACHE_NAME = "tarot-draw-2026-08-13-01";
 
 const APP_SHELL = [
   "./",
