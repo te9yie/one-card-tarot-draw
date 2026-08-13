@@ -1,4 +1,4 @@
-const CACHE_NAME = "tarot-draw-v2";
+const CACHE_NAME = "tarot-draw-2026-08-13-00";
 
 const APP_SHELL = [
   "./",
@@ -9,9 +9,11 @@ const APP_SHELL = [
   "script.js",
   "list.js",
   "manifest.json",
+  "icons/icon.svg",
   "icons/icon-192.png",
   "icons/icon-512.png",
   "icons/icon-maskable-512.png",
+  "icons/apple-touch-icon.png",
 ];
 
 self.addEventListener("install", (event) => {
