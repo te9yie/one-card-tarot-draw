@@ -2,15 +2,31 @@
   "name": "One-Card Tarot Draw",
   "short_name": "Tarot Draw",
   "description": "Draw a one-card tarot reading, or browse the full card list.",
-  "start_url": "./index.html",
-  "scope": "./",
+  "id": "/one-card-tarot-draw/",
+  "start_url": "/one-card-tarot-draw/",
+  "scope": "/one-card-tarot-draw/",
   "display": "standalone",
   "background_color": "#14101c",
   "theme_color": "#14101c",
   "lang": "en",
   "icons": [
-    { "src": "icons/icon-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any" },
-    { "src": "icons/icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any" },
-    { "src": "icons/icon-maskable-512.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable" }
+    {
+      "src": "icons/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "icons/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "icons/icon-maskable-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
+    }
   ]
 }
